@@ -1,0 +1,117 @@
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .navbar ul li a {
+        font-size: 18px;
+    }
+
+    .navbar-brand {
+        height: 64px;
+    }
+
+    .navbar ul {
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 64px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        padding-block: 18px;
+    }
+
+    .button {
+        padding: 10px 36px;
+        font-size: 18px;
+    }
+
+
+    .nav-iteam-list {
+        margin-block: 80px;
+    }
+
+    .navbar {
+        padding-block: 12px;
+    }
+
+
+    .hero .bg {
+        max-height: calc(100vh - 88px);
+    }
+
+    .item-1 {
+        height: 468px;
+    }
+
+    .item .full-href h4 {
+        font-size: 24px;
+    }
+
+    .item-2 {
+        height: 220px;
+    }
+
+    .item-3 {
+        height: 220px;
+    }
+
+    .products {
+        padding-top: 60px;
+        padding-bottom: 20px;
+    }
+
+    .product-heading {
+        margin-bottom: 40px;
+    }
+
+    .product-heading h2 {
+        font-size: 44px;
+    }
+
+    .product-heading .view-all-button {
+        font-size: 22px;
+    }
+
+    .products-item h2 {
+        font-size: 54px;
+    }
+
+    .products-item p {
+        font-size: 18px;
+    }
+
+    .products-item {
+        padding: 54px 44px;
+    }
+
+    .product-button .product-details {
+        height: 44px;
+        font-size: 18px;
+    }
+
+    .product-button .product-icon {
+        height: 44px;
+        width: 44px;
+    }
+
+    .event-heading h2 {
+        font-size: 44px;
+    }
+
+    .event-heading .view-all-button {
+        font-size: 20px;
+    }
+
+    .event-item p {
+        font-size: 16px;
+        line-height: 142%;
+    }
+
+    .contact-form-section h3 {
+        font-size: 32px;
+    }
+
+    .contact-form-section {
+        padding: 32px;
+    }
+}
