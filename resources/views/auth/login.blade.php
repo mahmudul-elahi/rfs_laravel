@@ -20,7 +20,8 @@
                         <div class="text-center text-md-center mb-4 mt-md-0">
                             <h1 class="mb-0 h3">Sign in to our platform</h1>
                         </div>
-                        <form action="#" class="mt-4">
+                        <form action="{{ route('login') }}" method="POST" class="mt-4">
+                            @csrf
                             <!-- Form -->
                             <div class="form-group mb-4">
                                 <label for="email">Your Email</label>
@@ -35,8 +36,8 @@
                                             </path>
                                         </svg>
                                     </span>
-                                    <input type="email" class="form-control" placeholder="example@company.com"
-                                        id="email" autofocus required>
+                                    <input type="email" class="form-control" name="email"
+                                        placeholder="example@company.com" id="email" autofocus required>
                                 </div>
                             </div>
                             <!-- End of Form -->
@@ -53,14 +54,14 @@
                                                     clip-rule="evenodd"></path>
                                             </svg>
                                         </span>
-                                        <input type="password" placeholder="Password" class="form-control" id="password"
-                                            required>
+                                        <input type="password" name="password" placeholder="Password" class="form-control"
+                                            id="password" required>
                                     </div>
                                 </div>
                                 <!-- End of Form -->
                                 <div class="d-flex justify-content-between align-items-top mb-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="remember">
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember">
                                         <label class="form-check-label mb-0" for="remember">
                                             Remember me
                                         </label>

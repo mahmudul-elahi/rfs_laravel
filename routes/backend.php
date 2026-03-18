@@ -8,8 +8,7 @@ use App\Http\Controllers\Backend\ProjectController;
 use App\Http\Controllers\Backend\SettingController;
 use Illuminate\Support\Facades\Route;
 
-// Route::middleware(['role:' . UserRole::SUPER_ADMIN->value])->group(function () {});
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['role:' . UserRole::SUPER_ADMIN->value, 'auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
 

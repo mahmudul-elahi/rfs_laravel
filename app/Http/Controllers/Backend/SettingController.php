@@ -21,10 +21,6 @@ class SettingController extends Controller
     }
 
 
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateSettingRequest $request)
     {
         DB::transaction(function () use ($request) {
@@ -45,14 +41,14 @@ class SettingController extends Controller
 
                     Setting::updateOrCreate(
                         ['key' => $key],
-                        ['value' => $path]
+                        ['value' => 'storage/' . $path]
                     );
 
                     continue;
                 }
 
                 if ($key === 'maintenance_mode') {
-                    $value = $request->maintenance_mode;
+                    $value = $request->maintenance_mode ? 'true' : 'false';
                 }
 
                 Setting::updateOrCreate(

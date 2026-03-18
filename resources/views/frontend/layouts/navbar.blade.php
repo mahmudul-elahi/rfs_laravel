@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md" id="navbar">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset('frontend/img/logo.png') }}" alt="לוגו">
+            <img src="{{ asset($settings['site_logo']) }}" alt="לוגו">
         </a>
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
