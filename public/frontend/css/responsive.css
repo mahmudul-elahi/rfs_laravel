@@ -25,7 +25,6 @@
         font-size: 18px;
     }
 
-
     .nav-iteam-list {
         margin-block: 80px;
     }
@@ -33,7 +32,6 @@
     .navbar {
         padding-block: 12px;
     }
-
 
     .hero .bg {
         max-height: calc(100vh - 88px);
@@ -84,6 +82,10 @@
         padding: 54px 44px;
     }
 
+    .products-item .product-image {
+        height: 340px;
+    }
+
     .product-button .product-details {
         height: 44px;
         font-size: 18px;
@@ -94,8 +96,15 @@
         width: 44px;
     }
 
-    .event-heading h2 {
-        font-size: 44px;
+    .product-button .product-details {
+        height: 44px;
+        font-size: 18px;
+    }
+
+    .button-rounded-sm {
+        height: 42px;
+        width: 42px;
+        font-size: 36px;
     }
 
     .event-heading .view-all-button {
@@ -114,4 +123,234 @@
     .contact-form-section {
         padding: 32px;
     }
+
+    .details {
+        padding-block: 45px;
+    }
+
+    .logo-footer img {
+        height: 90px;
+    }
+
+    .event-contact {
+        padding-block: 70px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .navbar ul li a {
+        font-size: 18px;
+    }
+
+    .contact-form-section {
+        padding: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .button {
+        padding: 8px 28px;
+        font-size: 16px;
+    }
+
+    .navbar ul li a {
+        font-size: 16px;
+    }
+
+    .navbar-brand {
+        height: 46px;
+    }
+
+    .last-button {
+        margin-top: 12px;
+    }
+
+    .navbar ul {
+        gap: 0px;
+        padding-top: 8px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        padding-block: 14px;
+    }
+
+    .hero .bg {
+        background: url(../img/mobile.png) no-repeat right/cover;
+        height: 340px;
+        padding: 16px;
+    }
+
+    .nav-iteam-list {
+        padding-block: 60px;
+    }
+
+    .nav-iteam-list .item-1 {
+        height: 368px;
+    }
+
+    .nav-iteam-list .item-2 {
+        height: 170px;
+        margin-top: 24px;
+    }
+
+    .nav-iteam-list .item-3 {
+        height: 170px;
+        margin-top: 24px;
+    }
+
+    .nav-iteam-list .item .full-href h4 {
+        font-size: 18px;
+    }
+
+    .nav-iteam-list .item-2 .full-href h4,
+    .nav-iteam-list .item-3 .full-href h4 {
+        font-size: 18px;
+    }
+
+    .button-rounded {
+        height: 48px;
+        width: 48px;
+        font-size: 32px;
+    }
+
+    .button-rounded-sm {
+        height: 48px;
+        width: 48px;
+        font-size: 32px;
+    }
+
+    .products {
+        padding-top: 60px;
+        padding-bottom: 20px;
+    }
+
+    .product-heading {
+        margin-bottom: 40px;
+    }
+
+    .product-heading h2 {
+        font-size: 36px;
+    }
+
+    .product-heading .view-all-button {
+        font-size: 18px;
+    }
+
+    .products-item h2 {
+        font-size: 42px;
+        text-align: center;
+    }
+
+    .products-item p {
+        font-size: 18px;
+        margin-top: 14px;
+        text-align: center;
+    }
+
+    .products-item {
+        padding: 36px;
+        margin-bottom: 28px;
+    }
+
+    .product-button .product-details {
+        padding-inline: 24px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .product-button .product-icon {
+        font-size: 24px;
+        margin-left: 24px;
+        height: 42px;
+        width: 42px;
+    }
+
+    .products-item .product-image {
+        height: 200px;
+        text-align: center;
+    }
+
+    .products-item .product-image img {
+        height: 100%;
+        width: auto;
+    }
+
+    .product-button {
+        margin: 0 auto;
+    }
+
+    .event-contact {
+        padding-block: 50px;
+    }
+
+    .event-heading {
+        padding-left: 12px;
+        padding-right: 32px;
+    }
+
+    .event-heading h2 {
+        font-size: 28px;
+    }
+
+    .event-heading .view-all-button {
+        font-size: 18px;
+    }
+
+    .event-item h3 {
+        font-size: 20px;
+    }
+
+    .event-item p {
+        font-size: 16px;
+    }
+
+    .contact-form-section h3 {
+        font-size: 32px;
+    }
+
+    .details {
+        padding: 24px;
+        padding-top: 0px;
+    }
+
+    .logo-footer img {
+        height: 66px;
+    }
+
+    .logo-footer P {
+        font-size: 16px;
+    }
+
+    .product-heading {
+        flex-direction: column;
+        gap: 20px;
+        align-items: start;
+    }
+
+    .system-rantal {
+        padding-block: 50px;
+    }
+
+    .system-rantal h2 {
+        font-size: 32px;
+    }
+
+    .system-rantal .system-image {
+        height: 280px;
+    }
+
+    .system-rantal p {
+        font-size: 18px;
+    }
+
+    .system-rantal p span {
+        font-size: 18px;
+    }
+
+
 }
