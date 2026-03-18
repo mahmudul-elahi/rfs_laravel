@@ -31,12 +31,13 @@
             <div class="col-md-6">
                 <div class="contact-form-section">
                     <h3>קבלו ייעוץ חינם!</h3>
-                    <form action="#" method="post">
+                    <form action="{{ route('contact.store') }}" method="post">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">שם מלא</label>
-                                    <input type="text" class="form-control" name="name" id="name"
+                                    <label for="full_name" class="form-label">שם מלא</label>
+                                    <input type="text" class="form-control" name="full_name" id="full_name"
                                         placeholder="למשל: ישראל ישראלי" />
                                 </div>
                             </div>

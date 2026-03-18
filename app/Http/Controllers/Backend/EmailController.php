@@ -14,8 +14,7 @@ class EmailController extends Controller
      */
     public function index()
     {
-        $emails = Email::orderBy('is_fav', 'desc')
-            ->latest()
+        $emails = Email::orderBy('is_fav', 'desc')->latest()
             ->paginate(10);
         return view('backend.emails.index', compact('emails'));
     }

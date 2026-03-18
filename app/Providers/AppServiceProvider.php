@@ -27,7 +27,10 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
 
 
-        $settings = Setting::all()->pluck('value', 'key');
+        $settings = cache()->remember('settings', 3600, function () {
+            return Setting::select('key', 'value')->pluck('value', 'key');
+        });
+
         View::share('settings', $settings);
     }
 }

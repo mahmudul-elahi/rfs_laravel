@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
     <a class="navbar-brand me-lg-5" href="#">
-        <img class="navbar-brand-dark" src="{{ asset('backend/img/brand/light.svg') }}" alt="Volt logo" /> <img
-            class="navbar-brand-light" src="{{ asset('backend/img/brand/dark.svg') }}" alt="Volt logo" />
+        <img class="navbar-brand-dark" src="{{ asset($settings['site_logo']) }}" alt="Volt logo" /> <img
+            class="navbar-brand-light" src="{{ asset($settings['site_logo']) }}" alt="Volt logo" />
     </a>
     <div class="d-flex align-items-center">
         <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
@@ -18,8 +18,8 @@
             class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
             <div class="d-flex align-items-center">
                 <div class="avatar-lg me-4">
-                    <img src="{{ asset('backend/img/team/profile-picture-3.jpg') }}"
-                        class="card-img-top rounded-circle border-white" alt="Bonnie Green">
+                    <img src="{{ asset('profile-picture-3.jpg') }}" class="card-img-top rounded-circle border-white"
+                        alt="Bonnie Green">
                 </div>
                 <div class="d-block">
                     <h2 class="h5 mb-3">Hi, Jane</h2>
@@ -53,8 +53,7 @@
             <li class="nav-item">
                 <a href="{{ route('dashboard') }}" class="nav-link d-flex align-items-center">
                     <span class="sidebar-icon">
-                        <img src="{{ asset('backend/img/brand/light.svg') }}" height="20" width="20"
-                            alt="Volt Logo">
+                        <img src="{{ asset($settings['site_logo']) }}" height="30" width="30" alt="Volt Logo">
                     </span>
                     <span class="mt-1 ms-1 sidebar-text">RSF Israel</span>
                 </a>

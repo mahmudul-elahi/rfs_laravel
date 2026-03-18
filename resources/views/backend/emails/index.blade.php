@@ -61,9 +61,6 @@
             <div class="card hover-state border-bottom rounded-0  {{ $loop->first ? 'rounded-top' : '' }} py-3">
                 <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
                     <div class="col-1 align-items-center px-0 d-none d-lg-flex">
-                        <div class="form-check inbox-check me-2 mb-0"><input class="form-check-input" type="checkbox"
-                                value="" id="mailCheck1"> <label class="form-check-label" for="mailCheck1"></label>
-                        </div>
                         <form action="{{ route('messages.fav', $email) }}" method="POST" class="d-inline">
                             @csrf
                             @method('PATCH')
