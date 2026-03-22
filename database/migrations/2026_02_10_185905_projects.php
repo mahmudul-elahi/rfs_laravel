@@ -14,11 +14,8 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->text('heading');
             $table->text('title');
             $table->longText('description');
-            $table->text('about_title')->nullable();
-            $table->longText('about_description')->nullable();
             $table->string('client_website')->nullable();
             $table->text('meta_title')->nullable();
             $table->longText('meta_description')->nullable();

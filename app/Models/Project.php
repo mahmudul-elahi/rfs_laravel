@@ -13,23 +13,13 @@ class Project extends Model
 
     protected $fillable = [
         'image',
-        'heading',
         'title',
         'description',
-        'about_title',
-        'about_description',
         'meta_title',
         'meta_description',
         'client_website',
         'slug'
     ];
-
-
-    public function getImageUrlAttribute()
-    {
-        return asset('storage/' . $this->image);
-    }
-
 
     protected static function boot()
     {

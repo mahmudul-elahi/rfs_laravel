@@ -14,3 +14,61 @@
 
     requestAnimationFrame(raf);
 </script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#contactForm').on('submit', function(event) {
+            event.preventDefault();
+
+            let isValid = true;
+
+            if ($('#full_name').val() === '') {
+                $('#full_name').addClass('is-invalid');
+                isValid = false;
+            } else {
+                $('#full_name').removeClass('is-invalid');
+            }
+
+            if ($('#company_name').val() === '') {
+                $('#company_name').addClass('is-invalid');
+                isValid = false;
+            } else {
+                $('#company_name').removeClass('is-invalid');
+            }
+            let email = $('#email').val();
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                $('#email').addClass('is-invalid');
+                isValid = false;
+            } else {
+                $('#email').removeClass('is-invalid');
+            }
+
+            let phone = $('#phone').val();
+            let phoneRegex = /^[0-9]+$/;
+            if (phone === '' || !phoneRegex.test(phone)) {
+                $('#phone').addClass('is-invalid');
+                isValid = false;
+            } else {
+                $('#phone').removeClass('is-invalid');
+            }
+
+            let details = $('#details').val();
+            if (details === '') {
+                $('#details').addClass('is-invalid');
+                isValid = false;
+            } else {
+                $('#details').removeClass('is-invalid');
+            }
+
+            if (isValid) {
+                this.submit();
+            }
+        });
+
+        $('input, textarea').on('input', function() {
+            $(this).removeClass('is-invalid');
+        });
+    });
+</script>

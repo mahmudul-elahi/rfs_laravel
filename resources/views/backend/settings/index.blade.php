@@ -46,13 +46,13 @@
                     <div class="mb-3">
                         <label class="form-label">Site Logo</label>
                         <input type="file" name="site_logo" class="dropify"
-                            data-default-file="{{ isset($settings['site_logo']) ? asset('storage/' . $settings['site_logo']) : '' }}">
+                            data-default-file="{{ isset($settings['site_logo']) ? asset($settings['site_logo']) : '' }}">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Favicon</label>
                         <input type="file" name="site_favicon" class="dropify"
-                            data-default-file="{{ isset($settings['site_favicon']) ? asset('storage/' . $settings['site_favicon']) : '' }}">
+                            data-default-file="{{ isset($settings['site_favicon']) ? asset($settings['site_favicon']) : '' }}">
                     </div>
                 </div>
 

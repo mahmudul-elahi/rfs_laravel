@@ -7,7 +7,7 @@
             <div class="container d-flex align-items-center h-100">
                 <div class="row w-100">
                     <div class="col-md-6 col-11 ms-auto">
-                        <h1>RSF</h1>
+                        <h1>{{ $settings['site_name'] ?? 'RSF ISRAEL AV ' }}</h1>
                         <p>החברה מתמחה במתן פתרונות טכנולוגיים ושירותי תוכן להעשרת חווית הביקור במוזיאונים, באתרי
                             תיירות, באתרי מורשת ובמרכזי מבקרים ברחבי העולם.
                         </p>

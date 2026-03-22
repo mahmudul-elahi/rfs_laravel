@@ -3,17 +3,14 @@
            <div class="row g-5 align-items-end">
                <div class="col-md-6">
                    <div class="logo-footer">
-                       <img src="{{ asset('frontend/img/logo.png') }}" alt="לוגו" title="לוגו">
-                       <p>חברת אר.אס.אף ישראל (E.V.) בע"מ פועלת בתחום ההדרכה הקולית והמולטימדיה, ומתמחה במתן פתרונות
-                           טכנולוגיים ושירותי תוכן להעשרת חווית הביקור במוזיאונים, אתרי תיירות ואתרי מורשת. החברה מספקת
-                           מגוון רחב של מערכות מולטימדיה קבועות וניידות, הכוללות: נגני וידאו ואודיו, מערכות הדרכה קולית
-                           ומולטימדיה למבקרים בודדים או לקבוצות, במגוון שפות ולמגזרים שונים.</p>
+                       <img src="{{ asset($settings['site_logo']) }}" alt="לוגו" title="לוגו">
+                       <p>{{ $settings['site_description'] ?? '' }}</p>
                    </div>
                </div>
                <div class="col-md-3">
                    <h4>מפת אתר</h4>
                    <ul class="list-unstyled">
-                       <li><a href="#">דף הבית</a></li>
+                       <li><a href="{{ route('home') }}">דף הבית</a></li>
                        <li><a href="#">אודותינו</a></li>
                        <li><a href="#">פרויקטים</a></li>
                        <li><a href="#">מוצרים</a></li>
@@ -34,21 +31,21 @@
 
                                <div class="c-detail">
                                    <h5>טלפון:</h5>
-                                   <h6>054-4697447</h6>
+                                   <h6>{{ $settings['contact_phone'] }}</h6>
                                </div>
                            </div>
                        </li>
 
-                       <!-- Fax -->
+                       <!-- WhatsApp -->
                        <li>
                            <div class="d-flex align-items-center gap-3 contact-secton-right">
                                <div class="c-icon">
-                                   <i class="bi bi-printer"></i>
+                                   <i class="bi bi-whatsapp"></i>
                                </div>
 
                                <div class="c-detail">
-                                   <h5>פקס:</h5>
-                                   <h6>153-3-5162896</h6>
+                                   <h5>וואטסאפ:</h5>
+                                   <h6>{{ $settings['whatsapp_number'] }}</h6>
                                </div>
                            </div>
                        </li>
