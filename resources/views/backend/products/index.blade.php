@@ -52,7 +52,7 @@
                         </td>
                         <td>
                             <div class="avatar">
-                                <img class="rounded" alt="Image placeholder" src="{{ $product->image_url }}">
+                                <img class="rounded" alt="Image placeholder" src="{{ asset($product->image) }}">
                             </div>
                         </td>
                         <td>

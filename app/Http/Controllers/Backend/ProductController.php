@@ -38,7 +38,7 @@ class ProductController extends Controller
         $data = $request->validated();
 
 
-        $slug = Str::slug($request->heading);
+        $slug = Str::slug($request->heading, '-', null);
         $originalSlug = $slug;
         $counter = 1;
         while (Product::where('slug', $slug)->exists()) {
@@ -49,7 +49,7 @@ class ProductController extends Controller
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $path = $request->file('image')->store('products', 'public');
-            $data['image'] = $path;
+            $data['image'] = 'storage/' . $path;
         }
 
         $product = Product::create($data);
@@ -95,7 +95,7 @@ class ProductController extends Controller
 
         if ($product->heading !== $request->heading) {
 
-            $slug = Str::slug($request->heading);
+            $slug = Str::slug($request->heading, '-', null);
             $originalSlug = $slug;
             $counter = 1;
 
@@ -118,7 +118,7 @@ class ProductController extends Controller
             }
 
             $path = $request->file('image')->store('products', 'public');
-            $data['image'] = $path;
+            $data['image'] = 'storage/' . $path;
         }
 
         $product->update($data);

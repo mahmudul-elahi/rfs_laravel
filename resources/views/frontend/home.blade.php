@@ -1,5 +1,6 @@
 @extends('frontend.master')
 
+@section('title', 'Home')
 
 @section('content')
     <section class="hero" dir="rtl">
@@ -73,97 +74,45 @@
         <div class="container">
             <div class="product-heading">
                 <h2>מוצרים</h2>
-                <a class="view-all-button" href="#">צפה בהכל</a>
+                <a class="view-all-button" href="{{ route('products.all') }}">צפה בהכל</a>
             </div>
 
 
-            <div class="products-item">
-                <div class="row g-5 align-items-center">
-                    <div class="col-md-6 order-2 order-md-1">
-                        <h2>מיני טאבלט - LOOK</h2>
-                        <p>
-                            המיני טאבלט של LOOK מאפשר הצגת סרטוני AR (מציאות רבודה) ו-VR (מציאות מדומה),
-                            פעילויות אינטראקטיביות, סנכרון וידאו, תוכן מבוסס מיקום
-                            והתאמה מיוחדת של המערכות עבור מוזיאונים ואתרי תיירות.
-                        </p>
+            @forelse ($products as $product)
+                <div class="products-item">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-md-6 order-2 order-md-1">
+                            <h2>{{ Str::limit($product->heading, 18, '') }}</h2>
+                            <p>
+                                {!! Str::limit($product->description, 150) !!}
+                            </p>
 
-                        <div class="text-center text-md-start">
-                            <a href="#" class="product-button">
-                                <div class="product-details">פרטי מוצר</div>
-                                <div class="product-icon">
-                                    <i class="bi bi-arrow-left-short"></i>
-                                </div>
-                            </a>
+                            <div class="text-center text-md-start">
+                                <a href="{{ route('products.show_detail', $product) }}" class="product-button">
+                                    <div class="product-details">פרטי מוצר</div>
+                                    <div class="product-icon">
+                                        <i class="bi bi-arrow-left-short"></i>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-6 order-1 order-md-2">
-                        <div class="product-image">
-                            <img src="{{ asset('frontend/img/product-1.png') }}" alt="תמונת מוצר">
+                        <div class="col-md-6 order-1 order-md-2">
+                            <div class="product-image">
+                                <img src="{{ asset($product->image) }}" alt="{{ $product->heading }}"
+                                    title="{{ $product->heading }}">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @empty
+                <p class="text-center text-muted">לא נמצאו מוצרים זמינים.</p>
+            @endforelse
 
 
 
-            <div class="products-item">
-                <div class="row g-5 align-items-center">
-                    <div class="col-md-6 order-2 order-md-1">
-                        <h2>מיני טאבלט - LOOK</h2>
-                        <p>
-                            המיני טאבלט של LOOK מאפשר הצגת סרטוני AR (מציאות רבודה) ו-VR (מציאות מדומה),
-                            פעילויות אינטראקטיביות, סנכרון וידאו, תוכן מבוסס מיקום
-                            והתאמה מיוחדת של המערכות עבור מוזיאונים ואתרי תיירות.
-                        </p>
-
-                        <div class="text-center text-md-start">
-                            <a href="#" class="product-button">
-                                <div class="product-details">פרטי מוצר</div>
-                                <div class="product-icon">
-                                    <i class="bi bi-arrow-left-short"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 order-1 order-md-2">
-                        <div class="product-image">
-                            <img src="{{ asset('frontend/img/product-1.png') }}" alt="תמונת מוצר">
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
-
-            <div class="products-item">
-                <div class="row g-5 align-items-center">
-                    <div class="col-md-6 order-2 order-md-1">
-                        <h2>מיני טאבלט - LOOK</h2>
-                        <p>
-                            המיני טאבלט של LOOK מאפשר הצגת סרטוני AR (מציאות רבודה) ו-VR (מציאות מדומה),
-                            פעילויות אינטראקטיביות, סנכרון וידאו, תוכן מבוסס מיקום
-                            והתאמה מיוחדת של המערכות עבור מוזיאונים ואתרי תיירות.
-                        </p>
-
-                        <div class="text-center text-md-start">
-                            <a href="#" class="product-button">
-                                <div class="product-details">פרטי מוצר</div>
-                                <div class="product-icon">
-                                    <i class="bi bi-arrow-left-short"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 order-1 order-md-2">
-                        <div class="product-image">
-                            <img src="{{ asset('frontend/img/product-1.png') }}" alt="תמונת מוצר">
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 @endsection

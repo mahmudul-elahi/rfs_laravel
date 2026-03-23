@@ -8,18 +8,16 @@
             <div class="col-md-6">
                 <div class="event-heading">
                     <h2>אירועים</h2>
-                    <a class="view-all-button" href="#">צפה בהכל</a>
+                    <a class="view-all-button" href="{{ route('projects.all') }}">צפה בהכל</a>
                 </div>
 
                 @forelse ($projects as $project)
-                    <a href="#" class="event-item">
+                    <a href="{{ route('projects.show_detail', $project) }}" class="event-item">
                         <div class="event-item-heading">
-                            <h3>{{ $project->title }}</h3>
+                            <h3>{{ Str::limit($project->title, 35, '') }}</h3>
                             <div class="event-link-button"><i class="bi bi-arrow-left-short"></i></div>
                         </div>
-                        <p>חברת אר.אס.אף ישראל (E.V.) בע"מ גאה להשיק מדריך קולי בבית עגנון בירושלים. במהלך הסיור,
-                            המבקרים יכולים להאזין להקלטות נדירות של עגנון ובני משפחתו, וכן לשמוע קטעי הסבר ועדויות מפי
-                            מומחים מהאקדמיה וצוות המוזיאון, המספרים על עגנון ומקריאים קטעים מיצירותיו הנבחרות.</p>
+                        <p>{!! Str::limit($project->description, 250, '') !!}</p>
                     </a>
                 @empty
                     <p>אין אירועים זמינים כרגע. אנא בדקו מאוחר יותר.</p>
@@ -35,7 +33,6 @@
                     <form id="contactForm" action="{{ route('contact.store') }}" method="post">
                         @csrf
                         <div class="row">
-                            <!-- Full Name -->
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="full_name" class="form-label">שם מלא</label>
@@ -45,7 +42,6 @@
                                 </div>
                             </div>
 
-                            <!-- Company Name -->
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="company_name" class="form-label">שם החברה</label>
@@ -55,7 +51,6 @@
                                 </div>
                             </div>
 
-                            <!-- Email -->
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">אימייל</label>
@@ -65,7 +60,6 @@
                                 </div>
                             </div>
 
-                            <!-- Phone -->
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="phone" class="form-label">טלפון</label>
@@ -75,7 +69,6 @@
                                 </div>
                             </div>
 
-                            <!-- Details -->
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="details" class="form-label">פרטים נוספים</label>
@@ -84,10 +77,11 @@
                                 </div>
                             </div>
 
-                            <!-- Submit Button -->
                             <div class="col-md-12">
-                                <div class="mt-2">
-                                    <button type="submit" class="button button-primary w-100">שלח בקשת התקשרות</button>
+                                <div class="mt-3">
+                                    <button type="submit" class="button button-primary w-100">
+                                        שלח בקשת התקשרות <i class="bi bi-send-fill ms-2"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>

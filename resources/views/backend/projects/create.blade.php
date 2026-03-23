@@ -44,15 +44,6 @@
             </div>
 
             <div class="mb-3">
-                <label for="heading" class="form-label">Heading</label>
-                <input type="text" name="heading" id="heading"
-                    class="form-control @error('heading') is-invalid @enderror" value="{{ old('heading') }}">
-                @error('heading')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" name="title" id="title"
                     class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}">
@@ -66,24 +57,6 @@
                 <textarea name="description" id="description" rows="4"
                     class="form-control editor @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
                 @error('description')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="about_title" class="form-label">About Title</label>
-                <input type="text" name="about_title" id="about_title"
-                    class="form-control @error('about_title') is-invalid @enderror" value="{{ old('about_title') }}">
-                @error('about_title')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="about_description" class="form-label">About Description</label>
-                <textarea name="about_description" id="about_description" rows="4"
-                    class="form-control editor @error('about_description') is-invalid @enderror">{{ old('about_description') }}</textarea>
-                @error('about_description')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>

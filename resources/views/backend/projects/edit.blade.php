@@ -37,21 +37,11 @@
             <div class="mb-3">
                 <label for="image" class="form-label">Project Image</label>
                 <input type="file" name="image" id="image" class="dropify @error('image') is-invalid @enderror"
-                    data-default-file="{{ $project->image_url }}" data-max-file-size="2M"
+                    data-default-file="{{ asset($project->image) }}" data-max-file-size="2M"
                     data-allowed-file-extensions="jpg png jpeg gif webp">
 
                 @error('image')
                     <div class="text-danger mt-1">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="heading" class="form-label">Heading</label>
-                <input type="text" name="heading" id="heading"
-                    class="form-control @error('heading') is-invalid @enderror"
-                    value="{{ old('heading', $project->heading) }}">
-                @error('heading')
-                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
@@ -69,25 +59,6 @@
                 <textarea name="description" id="description" rows="4"
                     class="form-control editor @error('description') is-invalid @enderror">{{ old('description', $project->description) }}</textarea>
                 @error('description')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="about_title" class="form-label">About Title</label>
-                <input type="text" name="about_title" id="about_title"
-                    class="form-control @error('about_title') is-invalid @enderror"
-                    value="{{ old('about_title', $project->about_title) }}">
-                @error('about_title')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="about_description" class="form-label">About Description</label>
-                <textarea name="about_description" id="about_description" rows="4"
-                    class="form-control editor @error('about_description') is-invalid @enderror">{{ old('about_description', $project->about_description) }}</textarea>
-                @error('about_description')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>

@@ -53,12 +53,12 @@
                         </td>
                         <td>
                             <div class="avatar">
-                                <img class="rounded" alt="Image placeholder" src="{{ $project->image_url }}">
+                                <img class="rounded" alt="Image placeholder" src="{{ asset($project->image) }}">
                             </div>
                         </td>
                         <td>
                             <span class="fw-normal">
-                                {{ Str::limit($project->heading, 30) }}
+                                {{ Str::limit($project->title, 30) }}
                             </span>
                         </td>
                         <td>

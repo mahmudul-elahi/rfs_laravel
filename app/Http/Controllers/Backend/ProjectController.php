@@ -36,7 +36,7 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        $slug = Str::slug($request->heading);
+        $slug = Str::slug($request->title, '-', null);
         $originalSlug = $slug;
         $counter = 1;
 
@@ -50,7 +50,7 @@ class ProjectController extends Controller
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $file = $request->file('image');
             $path = $file->store('projects', 'public');
-            $data['image'] = $path;
+            $data['image'] = 'storage/' . $path;
         }
 
         $project = Project::create($data);
@@ -92,9 +92,9 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        if ($project->heading !== $request->heading) {
+        if ($project->title !== $request->title) {
 
-            $slug = Str::slug($request->heading);
+            $slug = Str::slug($request->title, '-', null);
             $originalSlug = $slug;
             $counter = 1;
 

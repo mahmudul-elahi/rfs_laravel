@@ -22,12 +22,6 @@ class Product extends Model
     ];
 
 
-    public function getImageUrlAttribute()
-    {
-        return asset('storage/' . $this->image);
-    }
-
-
     protected static function boot()
     {
         parent::boot();

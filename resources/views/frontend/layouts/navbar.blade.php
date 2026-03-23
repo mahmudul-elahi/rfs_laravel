@@ -14,7 +14,7 @@
                     <a class="nav-link" href="{{ route('home') }}">דף הבית</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">מוצרים</a>
+                    <a class="nav-link" href="{{ route('products.all') }}">מוצרים</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">השכרת מערכות</a>
@@ -23,7 +23,7 @@
                     <a class="nav-link" href="#">נגישות</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">פרויקטים</a>
+                    <a class="nav-link" href="{{ route('projects.all') }}">פרויקטים</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">אודותינו</a>
