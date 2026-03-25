@@ -22,7 +22,6 @@
                    <h4>פרטי התקשרות</h4>
 
                    <ul class="list-unstyled">
-                       <!-- Phone -->
                        <li>
                            <div class="d-flex align-items-center gap-3 contact-secton-right">
                                <div class="c-icon">
@@ -36,7 +35,6 @@
                            </div>
                        </li>
 
-                       <!-- WhatsApp -->
                        <li>
                            <div class="d-flex align-items-center gap-3 contact-secton-right">
                                <div class="c-icon">
@@ -50,7 +48,6 @@
                            </div>
                        </li>
 
-                       <!-- Email -->
                        <li>
                            <div class="d-flex align-items-center gap-3 contact-secton-right">
                                <div class="c-icon">
@@ -64,7 +61,6 @@
                            </div>
                        </li>
 
-                       <!-- Social Media Links -->
                        <li>
                            <div class="d-flex align-items-center gap-3 contact-secton-right">
                                <a href="https://wa.me/972544697447" target="_blank" class="c-icon rounded">
@@ -93,3 +89,39 @@
            </div>
        </div>
    </section>
+
+
+
+
+
+   <div id="cookieConsent" class="fixed-bottom p-4" style="display: none; z-index: 1050;" dir="rtl">
+       <div class="container">
+           <div class="row justify-content-start">
+               <div class="col-12 col-md-5 col-lg-4">
+                   <div class="card border-0 card-glow rounded-3 overflow-hidden">
+                       <div class="card-body p-4">
+
+                           <div class="cookies_header">
+                               <div class="mb-3">
+                                   <img src="{{ asset('frontend/img/info-icon.png') }}" alt="Icon">
+                               </div>
+                           </div>
+
+                           <div class="d-flex align-items-start">
+                               <div class="flex-grow-1">
+                                   <h6>אתר זה משתמש בעוגיות (Cookies) לצורך תפעולו בלבד.</h6>
+                                   <p>
+                                       המשך הגלישה באתר מהווה הסכמה למדיניות הפרטיות שלנו.
+                                   </p>
+                                   <div class="d-flex gap-2 mt-4">
+                                       <button type="button" id="btnAcceptCookies"
+                                           class="button button-primary w-100">אני מסכים/ה</button>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>

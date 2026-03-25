@@ -65,6 +65,12 @@ body {
     background: var(--button-primary);
 }
 
+.button-outline-primary {
+    border: 1px solid #eee;
+    background: #fefdfe;
+    color: var(--Primary-main);
+}
+
 .button-primary:hover {
     box-shadow: 0px 25px 50px -12px #3c83f640;
     border: none;
@@ -936,4 +942,124 @@ body {
 
 /* ******************************
     Contact-Bottom-Details-End
+********************************/
+
+/* ******************************
+    Model-Section-Start
+********************************/
+
+.contact-popup-modal .modal-content {
+    border-radius: 16px;
+    border: 1px solid #205fa4;
+    background: #fff;
+    padding: 24px;
+}
+
+.contact-popup-modal .modal-dialog {
+    position: relative;
+}
+
+.contact-popup-modal .modal-dialog::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 10%;
+    width: 90%;
+    border-radius: 800px;
+    background: #86c2fe;
+    filter: blur(125px);
+    z-index: -1;
+}
+
+.contact-popup-modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-popup-modal .button-close {
+    background: none;
+    border: none;
+}
+
+.contact-popup-modal h5 {
+    color: #21609d;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.contact-popup-modal p {
+    color: #21609d;
+}
+
+.contact-popup-modal .list-privarvy {
+    color: #21609d;
+    font-weight: 400;
+    padding: 0;
+}
+
+.contact-popup-modal .list-privarvy li {
+    position: relative;
+    padding-left: 20px;
+}
+
+.contact-popup-modal .list-privarvy li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.contact-popup-modal .button {
+    font-size: 18px;
+}
+
+#cookieConsent {
+    transition: all 0.5s ease-in-out;
+}
+
+@media (max-width: 576px) {
+    #cookieConsent .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #cookieConsent .card {
+        margin-bottom: 10px;
+    }
+}
+
+#cookieConsent button {
+    font-size: 14px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#cookieConsent h6 {
+    color: #21609d;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 130%;
+    text-align: center;
+}
+
+#cookieConsent p {
+    color: #21609d;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    text-align: center;
+}
+
+.card-glow {
+    box-shadow: 0px 10px 60px 0px rgba(134, 194, 254, 0.4) !important;
+}
+
+/* ******************************
+    Model-Section-End
 ********************************/

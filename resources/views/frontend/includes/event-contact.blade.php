@@ -92,3 +92,63 @@
         </div>
     </div>
 </section>
+
+
+<div class="modal fade contact-popup-modal" id="modalId" tabindex="-1" data-bs-backdrop="static"
+    data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true" dir="rtl">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-1">
+                <h5 class="modal-title" id="modalTitleId">
+                    הגנה על הפרטיות שלך חשובה לנו
+                </h5>
+                <button class="button-close" type="button" data-bs-dismiss="modal" aria-label="Close"
+                    style="margin-right: auto; margin-left: 0;">
+                    <img src="{{ asset('frontend/icon/close.svg') }}" alt="סגור">
+                </button>
+            </div>
+            <div class="modal-body text-end">
+                <p class="fw-500">
+                    אנו ב-RSF Israel AV מכבדים את הפרטיות שלך ופועלים בהתאם לחוק הגנת הפרטיות ותקנות הגנת המידע. כדי
+                    להמשיך להשתמש באתר, לשלוח טפסים או לקבל שירות, עליך לאשר את מדיניות הפרטיות שלנו.
+                </p>
+
+                <p class="fw-bold mb-1">בלחיצה על "אישור והמשך", אני מצהיר/ה כי:</p>
+                <ul class="list-privarvy">
+                    <li>קראתי והבנתי את מדיניות הפרטיות.</li>
+                    <li>אני מסכים/ה לשמירה ולעיבוד של המידע שנמסר על ידי למטרות הבאות:</li>
+                    <ul class="ms-4">
+                        <li>מענה על שאלותיי</li>
+                        <li>יצירת קשר ומתן שירות</li>
+                        <li>שיפור חוויית הגלישה</li>
+                        <li>קבלת עדכונים והצעות רלוונטיות (בכפוף להסכמה מפורשת)</li>
+                    </ul>
+                    <li>ידוע לי כי אני רשאי/ת בכל עת לבקש לעיין, לתקן, להגביל או למחוק את המידע על ידי
+                        <u>פנייה לכתובת <a href="mailto:udi@rsf-israel.com">udi@rsf-israel.com</a></u>
+                    </li>
+                </ul>
+
+                <p class="fw-bold mb-0">סימון חובה בטפסים: </p>
+                <p class="fw-normal mb-4">אני מסכים/ה למדיניות הפרטיות ולעיבוד המידע האישי שלי.</p>
+
+                <p class="fw-bold mb-0">הבהרה חשובה: </p>
+                <p class="fw-normal">ללא אישור מפורש של מדיניות הפרטיות, לא ניתן יהיה להמשיך לגלוש באתר, למלא טפסים או
+                    לקבל שירות.</p>
+            </div>
+            <div class="modal-footer pb-0 pt-3">
+                <div class="w-100">
+                    <div class="row">
+                        <div class="col-md-6 mb-2 mb-md-0">
+                            <button type="button" class="button button-outline-primary w-100"
+                                data-bs-dismiss="modal">ביטול</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" id="confirmAgree" class="button button-primary w-100">אישור
+                                והמשך</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
