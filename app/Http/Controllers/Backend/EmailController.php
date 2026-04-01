@@ -44,10 +44,10 @@ class EmailController extends Controller
      */
     public function mark_as_read(Email $email)
     {
-        $email->update([
+        $email->forceFill([
             'is_read' => true,
-            'read_at' => now()
-        ]);
+            'read_at' => now(),
+        ])->save();
 
         return back();
     }
@@ -57,9 +57,9 @@ class EmailController extends Controller
      */
     public function fav(Email $email)
     {
-        $email->update([
-            'is_fav' => !$email->is_fav
-        ]);
+        $email->forceFill([
+            'is_fav' => ! $email->is_fav,
+        ])->save();
 
         return back();
     }

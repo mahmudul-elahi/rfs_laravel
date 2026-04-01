@@ -11,21 +11,17 @@ class Email extends Model
     /** @use HasFactory<\Database\Factories\EmailFactory> */
     use HasFactory, SoftDeletes;
 
-
     protected $fillable = [
         'full_name',
         'company_name',
         'email',
         'phone',
         'details',
-        'is_read',
-        'read_at',
-        'is_fav'
     ];
 
     protected $casts = [
         'is_read' => 'boolean',
         'is_fav' => 'boolean',
-        'read_at' => 'datetime',
+        'read_at' => 'immutable_datetime',
     ];
 }

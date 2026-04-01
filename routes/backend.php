@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\UserRole;
+use App\Http\Controllers\Backend\AccessibilityController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\EmailController;
 use App\Http\Controllers\Backend\ProductController;
@@ -14,6 +15,7 @@ Route::prefix('admin')->middleware(['role:' . UserRole::SUPER_ADMIN->value, 'aut
 
     Route::resource('projects', ProjectController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('accessibilities', AccessibilityController::class)->except(['show']);
     Route::resource('emails', EmailController::class)->except(['update', 'edit', 'create']);
 
     Route::patch('messages/{email}/read', [EmailController::class, 'mark_as_read'])
