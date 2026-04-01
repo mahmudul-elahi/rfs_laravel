@@ -18,11 +18,9 @@
     --navbar-color: #65758b;
     --navbar-color-hover: #1f2937;
 
-    --button-primary: linear-gradient(
-        102.24deg,
-        #205fa4 26.03%,
-        #00def5 93.26%
-    );
+    --button-primary: linear-gradient(102.24deg,
+            #205fa4 26.03%,
+            #00def5 93.26%);
 }
 
 /* ================== Reset & Common ================== */
@@ -361,6 +359,8 @@ body {
 .products-item .product-image {
     height: 440px;
     text-align: left;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .products-item .product-image img {
@@ -842,6 +842,8 @@ body {
 
 .product-details-page .product-details-image img {
     height: 100%;
+    width: 100%;
+    border-radius: 12px;
 }
 
 .product-details-page .project-details-image {
@@ -1021,6 +1023,7 @@ body {
     font-size: 18px;
 }
 
+
 #cookieConsent {
     transition: all 0.5s ease-in-out;
 }
@@ -1030,6 +1033,7 @@ body {
         padding-left: 10px;
         padding-right: 10px;
     }
+
     #cookieConsent .card {
         margin-bottom: 10px;
     }

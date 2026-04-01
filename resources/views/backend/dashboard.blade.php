@@ -3,7 +3,17 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <div class="pt-5">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="pt-5">
         <div class="row">
             <div class="col-12 col-sm-6 col-xl-4 mb-4">
                 <div class="card border-0 shadow">
@@ -694,5 +704,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
