@@ -101,7 +101,7 @@ body {
 }
 
 .breadcrumb {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     margin-top: 18px;
     margin-left: 8px;
 }
@@ -864,8 +864,26 @@ body {
     color: #51645f;
     font-size: 22px;
     font-weight: 500;
-    line-height: 150%;
+    line-height: 160%;
 }
+
+
+.product-details-page ul,
+.product-details-page ol {
+    padding-right: 16px !important;
+}
+
+
+.product-details-page ul li,
+ol li {
+    color: #51645f;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 160%;
+    list-style-type: disc;
+}
+
+
 
 /* ******************************
     Product-Details-End

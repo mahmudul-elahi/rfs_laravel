@@ -135,6 +135,20 @@
     .event-contact {
         padding-block: 70px;
     }
+
+    .product-details-page {
+        padding-top: 60px;
+    }
+
+
+    .product-details-page p {
+        font-size: 18px;
+    }
+
+    .product-details-page ul li,
+    ol li {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 767.98px) {
