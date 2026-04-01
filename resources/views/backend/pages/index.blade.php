@@ -10,15 +10,15 @@
                             <i class="bi bi-house-door"></i>
                         </a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Accessibility</li>
+                    <li class="breadcrumb-item active" aria-current="page">Pages</li>
                 </ol>
             </nav>
-            <h2 class="h4">Accessibility Items</h2>
+            <h2 class="h4">Custom Pages</h2>
         </div>
         <div class="btn-toolbar mb-2 mb-md-0">
-            <a href="{{ route('accessibilities.create') }}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+            <a href="{{ route('pages.create') }}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
                 <i class="bi bi-plus-lg me-2"></i>
-                New Item
+                New Page
             </a>
         </div>
     </div>
@@ -28,30 +28,19 @@
             <thead>
                 <tr>
                     <th class="border-gray-200">#</th>
-                    <th class="border-gray-200">Image</th>
-                    <th class="border-gray-200">Heading</th>
+                    <th class="border-gray-200">Title</th>
                     <th class="border-gray-200">Slug</th>
+                    <th class="border-gray-200">Created At</th>
                     <th class="border-gray-200">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($accessibilities as $accessibility)
+                @forelse ($pages as $page)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>
-                            @if ($accessibility->image)
-                                <div class="avatar">
-                                    <img class="rounded" alt="{{ $accessibility->heading }}"
-                                        src="{{ asset($accessibility->image) }}">
-                                </div>
-                            @endif
-                        </td>
-                        <td>
-                            <span class="fw-normal">{{ Str::limit($accessibility->heading, 80) }}</span>
-                        </td>
-                        <td>
-                            <span class="fw-normal">{{ $accessibility->slug }}</span>
-                        </td>
+                        <td>{{ Str::limit($page->title, 70) }}</td>
+                        <td>{{ $page->slug }}</td>
+                        <td>{{ $page->created_at->format('Y-m-d') }}</td>
                         <td>
                             <div class="btn-group dropstart">
                                 <button
@@ -63,16 +52,14 @@
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu py-0">
-                                    <a class="dropdown-item" href="{{ route('accessibilities.edit', $accessibility) }}">
+                                    <a class="dropdown-item" href="{{ route('pages.edit', $page) }}">
                                         <i class="bi bi-pencil-square me-2"></i> Edit
                                     </a>
-                                    <form action="{{ route('accessibilities.destroy', $accessibility) }}" method="POST"
-                                        class="d-inline">
+                                    <form action="{{ route('pages.destroy', $page) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-
                                         <button type="submit" class="dropdown-item text-danger rounded-bottom"
-                                            onclick="return confirm('Are you sure you want to delete this item?')">
+                                            onclick="return confirm('Are you sure you want to delete this page?')">
                                             <i class="bi bi-trash me-2"></i> Remove
                                         </button>
                                     </form>
@@ -82,14 +69,14 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5" class="text-center text-muted">No accessibility items found.</td>
+                        <td colspan="5" class="text-center text-muted">No pages found.</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
 
         <div class="pt-4">
-            {{ $accessibilities->links() }}
+            {{ $pages->links() }}
         </div>
     </div>
 @endsection

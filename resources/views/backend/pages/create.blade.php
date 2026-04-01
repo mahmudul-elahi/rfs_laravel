@@ -10,14 +10,14 @@
                             <i class="bi bi-house-door"></i>
                         </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="{{ route('accessibilities.index') }}">Accessibility</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('pages.index') }}">Pages</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Create</li>
                 </ol>
             </nav>
-            <h2 class="h4">Create Accessibility Item</h2>
+            <h2 class="h4">Create Page</h2>
         </div>
         <div class="btn-toolbar mb-2 mb-md-0">
-            <a href="{{ route('accessibilities.index') }}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+            <a href="{{ route('pages.index') }}" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
                 <i class="bi bi-arrow-left me-2"></i>
                 Back
             </a>
@@ -25,32 +25,22 @@
     </div>
 
     <div class="card card-body border-0 shadow">
-        <form action="{{ route('accessibilities.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('pages.store') }}" method="POST">
             @csrf
 
             <div class="mb-3">
-                <label for="image" class="form-label">Accessibility Image</label>
-                <input type="file" name="image" id="image" class="dropify @error('image') is-invalid @enderror"
-                    data-max-file-size="2M" data-allowed-file-extensions="jpg png jpeg gif webp">
-                @error('image')
-                    <div class="text-danger mt-1">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="heading" class="form-label">Heading</label>
-                <input type="text" name="heading" id="heading"
-                    class="form-control @error('heading') is-invalid @enderror" value="{{ old('heading') }}">
-                @error('heading')
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror"
+                    value="{{ old('title') }}">
+                @error('title')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea name="description" id="description" rows="4"
-                    class="form-control editor @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
-                @error('description')
+                <label for="content" class="form-label">Content</label>
+                <textarea name="content" id="content" rows="8" class="form-control editor @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
+                @error('content')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -60,15 +50,6 @@
                 <input type="text" name="meta_title" id="meta_title"
                     class="form-control @error('meta_title') is-invalid @enderror" value="{{ old('meta_title') }}">
                 @error('meta_title')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="meta_keyword" class="form-label">Meta Keyword</label>
-                <input name="meta_keyword" id="meta_keyword"
-                    class="form-control @error('meta_keyword') is-invalid @enderror" value="{{ old('meta_keyword') }}">
-                @error('meta_keyword')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -84,7 +65,7 @@
 
             <button type="submit" class="btn btn-primary">
                 <i class="bi bi-plus-lg me-1"></i>
-                Create Item
+                Create Page
             </button>
         </form>
     </div>

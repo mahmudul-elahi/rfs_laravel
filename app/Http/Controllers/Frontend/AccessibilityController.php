@@ -9,8 +9,13 @@ class AccessibilityController extends Controller
 {
     public function index()
     {
-        $accessibilities = Accessibility::orderBy('position')->get()->keyBy('position');
+        $accessibilities = Accessibility::latest()->take(3)->get()->values();
 
         return view('frontend.accessibility.index', compact('accessibilities'));
+    }
+
+    public function show(Accessibility $accessibility)
+    {
+        return view('frontend.accessibility.show', compact('accessibility'));
     }
 }

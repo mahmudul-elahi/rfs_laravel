@@ -21,18 +21,13 @@ class UpdateAccessibilityRequest extends FormRequest
      */
     public function rules(): array
     {
-        $accessibilityId = $this->route('accessibility')?->id;
-
         return [
-            'title' => ['required', 'string', 'max:1000'],
-            'url' => ['nullable', 'string', 'max:2048', 'regex:/^(#|\\/|https?:\\/\\/)/i'],
-            'position' => [
-                'required',
-                'integer',
-                'min:1',
-                'max:3',
-                'unique:accessibilities,position,' . $accessibilityId,
-            ],
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
+            'heading' => 'required|string|max:255',
+            'description' => 'required|string',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keyword' => 'nullable|string',
         ];
     }
 }

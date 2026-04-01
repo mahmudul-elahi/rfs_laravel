@@ -16,18 +16,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('products.all') }}">מוצרים</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">השכרת מערכות</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">נגישות</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('projects.all') }}">פרויקטים</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">אודותינו</a>
+                    <a class="nav-link" href="{{ route('accessibility.index') }}">נגישות</a>
                 </li>
+                @foreach ($pages as $page)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('pages.show_detail', $page) }}">{{ $page->title }}</a>
+                    </li>
+                @endforeach
                 <li class="nav-item">
                     <a class="nav-link last-button" href="#">צור קשר</a>
                 </li>

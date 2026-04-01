@@ -29,6 +29,11 @@
         margin-block: 80px;
     }
 
+
+    .nav-iteam-list.accessibility {
+        padding-block: 0;
+    }
+
     .navbar {
         padding-block: 12px;
     }

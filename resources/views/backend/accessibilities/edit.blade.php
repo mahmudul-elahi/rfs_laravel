@@ -25,38 +25,67 @@
     </div>
 
     <div class="card card-body border-0 shadow">
-        <form action="{{ route('accessibilities.update', $accessibility) }}" method="POST">
+        <form action="{{ route('accessibilities.update', $accessibility) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
             <div class="mb-3">
-                <label class="form-label">Position (1-3)</label>
-                <select name="position" class="form-select @error('position') is-invalid @enderror">
-                    @for ($i = 1; $i <= 3; $i++)
-                        <option value="{{ $i }}" @selected((int) old('position', $accessibility->position) === $i)>
-                            {{ $i }}
-                        </option>
-                    @endfor
-                </select>
-                @error('position')
+                <label class="form-label">Accessibility Image</label>
+
+                @if ($accessibility->image)
+                    <div class="mb-2">
+                        <img src="{{ asset($accessibility->image) }}" width="120" class="rounded">
+                    </div>
+                @endif
+
+                <input type="file" name="image" class="dropify @error('image') is-invalid @enderror"
+                    data-max-file-size="2M" data-allowed-file-extensions="jpg png jpeg gif webp">
+
+                @error('image')
+                    <div class="text-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Heading</label>
+                <input type="text" name="heading" class="form-control @error('heading') is-invalid @enderror"
+                    value="{{ old('heading', $accessibility->heading) }}">
+                @error('heading')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Title</label>
-                <textarea name="title" rows="4" class="form-control @error('title') is-invalid @enderror">{{ old('title', $accessibility->title) }}</textarea>
-                <div class="form-text">Use a new line to break text (will display as line breaks).</div>
-                @error('title')
+                <label class="form-label">Description</label>
+                <textarea name="description" rows="4" class="form-control editor @error('description') is-invalid @enderror">{{ old('description', $accessibility->description) }}</textarea>
+                @error('description')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="mb-3">
-                <label class="form-label">URL (optional)</label>
-                <input type="text" name="url" class="form-control @error('url') is-invalid @enderror"
-                    value="{{ old('url', $accessibility->url) }}" placeholder="/some-page or https://example.com or #">
-                @error('url')
+                <label class="form-label">Meta Title</label>
+                <input type="text" name="meta_title" class="form-control @error('meta_title') is-invalid @enderror"
+                    value="{{ old('meta_title', $accessibility->meta_title) }}">
+                @error('meta_title')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Meta Keyword</label>
+                <input type="text" name="meta_keyword"
+                    class="form-control @error('meta_keyword') is-invalid @enderror"
+                    value="{{ old('meta_keyword', $accessibility->tags->pluck('name')->implode(', ')) }}">
+                @error('meta_keyword')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Meta Description</label>
+                <textarea name="meta_description" rows="4" class="form-control @error('meta_description') is-invalid @enderror">{{ old('meta_description', $accessibility->meta_description) }}</textarea>
+                @error('meta_description')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -68,4 +97,3 @@
         </form>
     </div>
 @endsection
-

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
@@ -28,8 +29,12 @@ class AppServiceProvider extends ServiceProvider
 
 
         $settings = Setting::select('key', 'value')->pluck('value', 'key')->toArray();
+        $pages = Schema::hasTable('pages')
+            ? Page::latest()->get(['title', 'slug'])
+            : collect();
 
         View::share('settings', $settings);
+        View::share('pages', $pages);
 
         // dd($settings);
     }

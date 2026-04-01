@@ -7,17 +7,17 @@
 @section('content')
 
     @php
-        $item1 = $accessibilities[1] ?? null;
-        $item2 = $accessibilities[2] ?? null;
-        $item3 = $accessibilities[3] ?? null;
+        $item1 = $accessibilities->get(0);
+        $item2 = $accessibilities->get(1);
+        $item3 = $accessibilities->get(2);
 
-        $title1 = $item1?->title ?? "Accessibility for people\nwith disabilities";
-        $title2 = $item2?->title ?? "Technological solutions for\npeople with disabilities";
-        $title3 = $item3?->title ?? "The ANZAC Soldiers' Memorial Centre";
+        $title1 = $item1?->heading ?? "Accessibility for people\nwith disabilities";
+        $title2 = $item2?->heading ?? "Technological solutions for\npeople with disabilities";
+        $title3 = $item3?->heading ?? "The ANZAC Soldiers' Memorial Centre";
 
-        $url1 = $item1?->url ?: '#';
-        $url2 = $item2?->url ?: '#';
-        $url3 = $item3?->url ?: '#';
+        $url1 = $item1 ? route('accessibility.show_detail', $item1) : '#';
+        $url2 = $item2 ? route('accessibility.show_detail', $item2) : '#';
+        $url3 = $item3 ? route('accessibility.show_detail', $item3) : '#';
     @endphp
 
     <section class="nav-iteam-list accessibility">
