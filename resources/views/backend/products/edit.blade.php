@@ -71,15 +71,6 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">About Description</label>
-                <textarea name="about_description" rows="4"
-                    class="form-control editor @error('about_description') is-invalid @enderror">{{ old('about_description', $product->about_description) }}</textarea>
-                @error('about_description')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
                 <label class="form-label">Meta Title</label>
                 <input type="text" name="meta_title" class="form-control @error('meta_title') is-invalid @enderror"
                     value="{{ old('meta_title', $product->meta_title) }}">

@@ -15,7 +15,6 @@ class Product extends Model
         'image',
         'heading',
         'description',
-        'about_description',
         'meta_title',
         'meta_description',
         'slug'

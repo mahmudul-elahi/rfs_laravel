@@ -18,6 +18,12 @@
             </nav>
 
 
+            @php
+                $text = $product->description;
+                $firstPart = Str::limit($text, 700, '');
+                $remainingPart = Str::substr($text, 700);
+            @endphp
+
             <div class="row g-5">
                 <div class="col-md-5">
                     <div class="product-details-image">
@@ -27,12 +33,14 @@
                 </div>
 
                 <div class="col-md-7">
-                    <p>{!! $product->description !!}</p>
+                    <p>{!! $firstPart !!}</p>
                 </div>
 
-                <div class="col-md-12">
-                    <p>{!! $product->about_description !!}</p>
-                </div>
+                @if ($remainingPart)
+                    <div class="col-md-12">
+                        <p>{!! $remainingPart !!}</p>
+                    </div>
+                @endif
             </div>
         </div>
     </section>

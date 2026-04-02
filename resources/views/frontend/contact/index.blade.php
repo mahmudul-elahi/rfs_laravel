@@ -9,10 +9,10 @@
 
     <section class="system-rantal" dir="rtl">
         <div class="container">
-            <h2 class="text-end">צור קשר</h2>
+            <h2 class="text-start">צור קשר</h2>
 
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-end">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">צור קשר</li>
                     <li class="breadcrumb-item"><a href="#"><i class="bi bi-house-door-fill"></i></a></li>
                 </ol>
@@ -57,7 +57,7 @@
         </div>
     </section>
 
-    <div class="section-contact-bottom">
+    <div class="section-contact-bottom" dir="rtl">
         <div class="row g-0">
             <div class="col-md-6">
                 <div class="section-contact-bottom-left">
@@ -68,7 +68,7 @@
                                     <i class="bi bi-telephone"></i>
                                 </div>
 
-                                <div class="c-detail text-end">
+                                <div class="c-detail text-start">
                                     <h5>טלפון:</h5>
                                     <h6>054-4697447</h6>
                                 </div>
@@ -82,7 +82,7 @@
                                     <i class="bi bi-printer"></i>
                                 </div>
 
-                                <div class="c-detail text-end">
+                                <div class="c-detail text-start">
                                     <h5>פקס:</h5>
                                     <h6>153-3-5162896</h6>
                                 </div>
@@ -96,7 +96,7 @@
                                     <i class="bi bi-envelope"></i>
                                 </div>
 
-                                <div class="c-detail text-end">
+                                <div class="c-detail text-start">
                                     <h5>אימייל:</h5>
                                     <h6>udi@rsf-israel.com</h6>
                                 </div>
@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="section-contact-bottom-right h-100 text-end">
+                <div class="section-contact-bottom-right h-100 text-start">
                     <h5>הישארו מחוברים אלינו!</h5>
 
 

@@ -16,11 +16,11 @@
     'detailsPlaceholder' => 'ספרו לנו עוד על הצורך שלכם...',
 ])
 
-<div class="contact-form-section {{ $dir === 'rtl' ? 'text-end' : 'text-start' }}" dir="{{ $dir }}">
+<div class="contact-form-section" dir="{{ $dir }}">
     <h3>{{ $title }}</h3>
 
     @if (session('success'))
-        <div class="alert alert-info mb-4" role="alert">
+        <div class="alert alert-success mb-4" role="alert">
             {{ session('success') }}
         </div>
     @endif
@@ -65,7 +65,7 @@
                 <div class="mb-3">
                     <label for="{{ $formId }}_email" class="form-label">{{ $emailLabel }}</label>
                     <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                        id="{{ $formId }}_email" value="{{ old('email') }}" dir="ltr"
+                        id="{{ $formId }}_email" value="{{ old('email') }}"
                         placeholder="{{ $emailPlaceholder }}" required />
                     <div class="invalid-feedback">
                         @error('email')
@@ -113,7 +113,7 @@
                     <button type="submit" class="button button-primary w-100">
                         {{ $submitText }}
                         @if ($dir === 'rtl')
-                            <i class="bi bi-send-fill me-2"></i>
+                            <i class="bi bi-send-fill ms-2"></i>
                         @endif
                     </button>
                 </div>
@@ -130,10 +130,9 @@
                 <h5 class="modal-title">
                     {{ $dir === 'rtl' ? 'הגנה על הפרטיות שלך חשובה לנו' : 'Your privacy matters to us' }}
                 </h5>
-                <button class="button-close" type="button" data-bs-dismiss="modal"
-                    aria-label="{{ $dir === 'rtl' ? 'סגור' : 'Close' }}"
+                <button class="button-close" type="button" data-bs-dismiss="modal" aria-label="Close"
                     style="{{ $dir === 'rtl' ? 'margin-right: auto; margin-left: 0;' : 'margin-left: auto; margin-right: 0;' }}">
-                    <img src="{{ asset('frontend/icon/close.svg') }}" alt="{{ $dir === 'rtl' ? 'סגור' : 'Close' }}">
+                    <img src="{{ asset('frontend/icon/close.svg') }}" alt="Close">
                 </button>
             </div>
             <div class="modal-body {{ $dir === 'rtl' ? 'text-end' : 'text-start' }}">
@@ -147,7 +146,7 @@
                     <ul class="list-privarvy">
                         <li>קראתי והבנתי את מדיניות הפרטיות.</li>
                         <li>אני מסכים/ה לשמירה ולעיבוד של המידע שנמסר על ידי למטרות הבאות:</li>
-                        <ul class="{{ $dir === 'rtl' ? 'me-4' : 'ms-4' }}">
+                        <ul class="ms-4">
                             <li>מענה על שאלותיי</li>
                             <li>יצירת קשר ומתן שירות</li>
                             <li>שיפור חוויית הגלישה</li>
@@ -190,7 +189,7 @@
                     <p class="fw-normal">Without explicit agreement, the form cannot be submitted.</p>
                 @endif
             </div>
-            <div class="modal-footer pb-0 pt-3 {{ $dir === 'rtl' ? 'text-end' : 'text-start' }}">
+            <div class="modal-footer pb-0 pt-3">
                 <div class="w-100">
                     <div class="row">
                         <div class="col-md-6 mb-2 mb-md-0">
@@ -211,25 +210,3 @@
         </div>
     </div>
 </div>
-
-@once
-    @push('styles')
-        <style>
-            .contact-form-section[dir="rtl"] .form-control,
-            .contact-popup-modal[dir="rtl"] .form-control,
-            .contact-popup-modal[dir="rtl"] .list-privarvy {
-                text-align: right;
-            }
-
-            .contact-form-section[dir="rtl"] .invalid-feedback,
-            .contact-popup-modal[dir="rtl"] .invalid-feedback {
-                text-align: right;
-            }
-
-            .contact-form-section[dir="rtl"] textarea.form-control,
-            .contact-popup-modal[dir="rtl"] textarea.form-control {
-                direction: rtl;
-            }
-        </style>
-    @endpush
-@endonce

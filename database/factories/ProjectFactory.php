@@ -23,7 +23,6 @@ class ProjectFactory extends Factory
             'title' => $this->faker->sentence(6),
             'description' => $this->faker->paragraphs(3, true),
             'about_title' => $this->faker->sentence(4),
-            'about_description' => $this->faker->paragraphs(2, true),
             'client_website' => $this->faker->url(),
             'meta_title' => $this->faker->sentence(5),
             'slug' => Str::slug($this->faker->unique()->sentence(3)),
