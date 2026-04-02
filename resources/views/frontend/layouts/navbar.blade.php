@@ -29,7 +29,7 @@
                     </li>
                 @endforeach
                 <li class="nav-item">
-                    <a class="nav-link last-button" href="#">צור קשר</a>
+                    <a class="nav-link last-button" href="{{ route('contact.index') }}">צור קשר</a>
                 </li>
             </ul>
         </div>

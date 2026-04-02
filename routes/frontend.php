@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('accessibility', [AccessibilityController::class, 'index'])->name('accessibility.index');
 Route::get('accessibility/{accessibility:slug}', [AccessibilityController::class, 'show'])->name('accessibility.show_detail');
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.all');
