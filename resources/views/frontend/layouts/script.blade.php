@@ -17,61 +17,46 @@
 
 <script>
     $(document).ready(function() {
-        $('#contactForm').on('submit', function(event) {
+        $('.js-contact-form').on('submit', function(event) {
             event.preventDefault();
 
+            const $form = $(this);
             let isValid = true;
 
-            if ($('#full_name').val().trim() === '') {
-                $('#full_name').addClass('is-invalid');
-                isValid = false;
-            } else {
-                $('#full_name').removeClass('is-invalid');
-            }
+            $form.find('input[required], textarea[required]').each(function() {
+                const $field = $(this);
+                const value = $field.val().trim();
+                const fieldType = ($field.attr('type') || '').toLowerCase();
+                let fieldValid = value !== '';
 
-            if ($('#company_name').val().trim() === '') {
-                $('#company_name').addClass('is-invalid');
-                isValid = false;
-            } else {
-                $('#company_name').removeClass('is-invalid');
-            }
+                if (fieldValid && fieldType === 'email') {
+                    fieldValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+                }
 
-            let email = $('#email').val();
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email === '' || !emailRegex.test(email)) {
-                $('#email').addClass('is-invalid');
-                isValid = false;
-            } else {
-                $('#email').removeClass('is-invalid');
-            }
+                if (fieldValid && $field.attr('name') === 'phone') {
+                    fieldValid = /^[0-9\-+ ]+$/.test(value);
+                }
 
-            let phone = $('#phone').val();
-            let phoneRegex = /^[0-9\-+ ]+$/;
-            if (phone === '' || !phoneRegex.test(phone)) {
-                $('#phone').addClass('is-invalid');
-                isValid = false;
-            } else {
-                $('#phone').removeClass('is-invalid');
-            }
-
-            let details = $('#details').val().trim();
-            if (details === '') {
-                $('#details').addClass('is-invalid');
-                isValid = false;
-            } else {
-                $('#details').removeClass('is-invalid');
-            }
+                $field.toggleClass('is-invalid', !fieldValid);
+                isValid = isValid && fieldValid;
+            });
 
             if (isValid) {
-                $('#modalId').modal('show');
+                const modalId = $form.data('privacy-modal');
+                $('#' + modalId).modal('show');
             }
         });
 
-        $('#confirmAgree').on('click', function() {
-            $('#contactForm')[0].submit();
+        $('.js-contact-confirm').on('click', function() {
+            const formId = $(this).data('contact-form');
+            const form = document.getElementById(formId);
+
+            if (form) {
+                form.submit();
+            }
         });
 
-        $('input, textarea').on('input', function() {
+        $('.js-contact-form input, .js-contact-form textarea').on('input', function() {
             $(this).removeClass('is-invalid');
         });
     });

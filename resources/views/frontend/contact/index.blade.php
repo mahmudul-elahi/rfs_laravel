@@ -1,18 +1,20 @@
 @extends('frontend.master')
 
-@section('title', 'Contact')
+@section('title', 'צור קשר')
+
+@section('hideEventContact', 'true')
 
 @section('content')
 
 
-    <section class="system-rantal">
+    <section class="system-rantal" dir="rtl">
         <div class="container">
-            <h2>Contact Us</h2>
+            <h2 class="text-end">צור קשר</h2>
 
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb justify-content-end">
+                    <li class="breadcrumb-item active" aria-current="page">צור קשר</li>
                     <li class="breadcrumb-item"><a href="#"><i class="bi bi-house-door-fill"></i></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
                 </ol>
             </nav>
 
@@ -20,66 +22,35 @@
             <div class="row g-5">
                 <div class="col-md-6">
 
-                    <div class="contact-form-section left h-100">
+                    <div class="contact-form-section left h-100 text-end">
                         <h5 class="mb-5">
-                            Contact Us And Get A Free Consultation or reach us here -
+                            צרו איתנו קשר לקבלת ייעוץ חינם, או פנו אלינו כאן:
                         </h5>
 
-                        <h6>Inquires:</h6>
+                        <h6>לפניות:</h6>
                         <h4>udi@rsf-israel.com</h4>
                     </div>
 
                 </div>
 
                 <div class="col-md-6">
-                    <div class="contact-form-section">
-                        <h3>Get a free consultation!</h3>
-                        <form action="#" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" name="name" id="name"
-                                            placeholder="Ex. Jane Cooper" />
-                                    </div>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="company_name" class="form-label">Company Name</label>
-                                        <input type="text" class="form-control" name="company_name" id="company_name"
-                                            placeholder="Ex. Al Arafa Technologies" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">E-mail</label>
-                                        <input type="text" class="form-control" name="email" id="email"
-                                            placeholder="Ex. You@Example.com" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label for="phone" class="form-label">Phone</label>
-                                        <input type="text" class="form-control" name="phone" id="phone"
-                                            placeholder="920 006 748" />
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-                                        <label for="details" class="form-label">Details</label>
-                                        <textarea class="form-control" name="details" id="details" placeholder="Tell us more about your idea..."
-                                            rows="5"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="mt-4">
-                                        <button class="button button-primary w-100">Submit Contact Request</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    @include('frontend.includes.contact-form', [
+                        'formId' => 'contactPageForm',
+                        'modalId' => 'contactPagePrivacyModal',
+                        'dir' => 'rtl',
+                        'title' => 'קבלו ייעוץ חינם!',
+                        'submitText' => 'שלח בקשת התקשרות',
+                        'fullNameLabel' => 'שם מלא',
+                        'fullNamePlaceholder' => 'למשל: ישראל ישראלי',
+                        'companyLabel' => 'שם החברה',
+                        'companyPlaceholder' => "למשל: טכנולוגיות בע''מ",
+                        'emailLabel' => 'אימייל',
+                        'emailPlaceholder' => 'name@example.com',
+                        'phoneLabel' => 'טלפון',
+                        'phonePlaceholder' => '050-0000000',
+                        'detailsLabel' => 'פרטים נוספים',
+                        'detailsPlaceholder' => 'ספרו לנו עוד על הצורך שלכם...',
+                    ])
                 </div>
             </div>
 
@@ -97,8 +68,8 @@
                                     <i class="bi bi-telephone"></i>
                                 </div>
 
-                                <div class="c-detail">
-                                    <h5>Phone:</h5>
+                                <div class="c-detail text-end">
+                                    <h5>טלפון:</h5>
                                     <h6>054-4697447</h6>
                                 </div>
                             </div>
@@ -111,8 +82,8 @@
                                     <i class="bi bi-printer"></i>
                                 </div>
 
-                                <div class="c-detail">
-                                    <h5>Fax:</h5>
+                                <div class="c-detail text-end">
+                                    <h5>פקס:</h5>
                                     <h6>153-3-5162896</h6>
                                 </div>
                             </div>
@@ -125,8 +96,8 @@
                                     <i class="bi bi-envelope"></i>
                                 </div>
 
-                                <div class="c-detail">
-                                    <h5>Email:</h5>
+                                <div class="c-detail text-end">
+                                    <h5>אימייל:</h5>
                                     <h6>udi@rsf-israel.com</h6>
                                 </div>
                             </div>
@@ -136,8 +107,8 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="section-contact-bottom-right h-100">
-                    <h5>Stay connected with us!</h5>
+                <div class="section-contact-bottom-right h-100 text-end">
+                    <h5>הישארו מחוברים אלינו!</h5>
 
 
                     <div class="d-flex align-items-center gap-3 contact-secton-right">
@@ -158,8 +129,7 @@
                             <i class="fab fa-x-twitter"></i>
                         </a>
 
-                        <a href="https://www.linkedin.com/in/yourusername" target="_blank"
-                            class="c-icon rounded c-icon-lg">
+                        <a href="https://www.linkedin.com/in/yourusername" target="_blank" class="c-icon rounded c-icon-lg">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
 

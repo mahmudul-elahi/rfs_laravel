@@ -19,8 +19,9 @@
         @yield('content')
     </main>
 
-
-    @include('frontend.includes.event-contact')
+    @unless (View::hasSection('hideEventContact'))
+        @include('frontend.includes.event-contact')
+    @endunless
 
     @include('frontend.layouts.footer')
 
