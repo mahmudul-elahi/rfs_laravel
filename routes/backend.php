@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\AccessibilityController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\EmailController;
 use App\Http\Controllers\Backend\PageController;
+use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProjectController;
 use App\Http\Controllers\Backend\SettingController;
@@ -13,12 +14,17 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->middleware(['role:' . UserRole::SUPER_ADMIN->value, 'auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
+    Route::get('profile', [ProfileController::class, 'edit'])->name('admin.profile.edit');
+    Route::put('profile/email', [ProfileController::class, 'updateEmail'])->name('admin.profile.email');
+    Route::put('profile/password', [ProfileController::class, 'updatePassword'])->name('admin.profile.password');
 
     Route::resource('projects', ProjectController::class);
     Route::resource('products', ProductController::class);
     Route::resource('pages', PageController::class)->except(['show']);
     Route::resource('accessibilities', AccessibilityController::class)->except(['show']);
     Route::resource('emails', EmailController::class)->except(['update', 'edit', 'create']);
+    Route::post('emails/{email}/reply', [EmailController::class, 'reply'])
+        ->name('emails.reply');
 
     Route::patch('messages/{email}/read', [EmailController::class, 'mark_as_read'])
         ->name('messages.read');

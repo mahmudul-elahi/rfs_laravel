@@ -20,7 +20,7 @@
     <h3>{{ $title }}</h3>
 
     @if (session('success'))
-        <div class="alert alert-success mb-4" role="alert">
+        <div class="alert alert-info mb-4" role="alert">
             {{ session('success') }}
         </div>
     @endif

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactSubmissionNotification;
 use App\Models\Email;
+use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -15,7 +18,7 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        $validate = $request->validate([
+        $validated = $request->validate([
             'full_name' => 'required|string',
             'company_name' => 'required|string',
             'email' => 'required|email|max:255',
@@ -23,14 +26,15 @@ class ContactController extends Controller
             'details' => 'required|string',
         ]);
 
-        Email::create([
-            'full_name' => $request->full_name,
-            'company_name' => $request->company_name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'details' => $request->details
-        ]);
+        $email = Email::create($validated);
 
-        return redirect()->back()->with('success', 'Your message has been sent successfully!');
+        $recipientEmail = Setting::where('key', 'contact_email')->value('value')
+            ?: env('MAIL_TO_ADDRESS', config('mail.from.address'));
+
+        if ($recipientEmail) {
+            Mail::to($recipientEmail)->send(new ContactSubmissionNotification($email));
+        }
+
+        return redirect()->back()->with('success', 'הודעתך נשלחה בהצלחה!');
     }
 }

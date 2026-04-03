@@ -155,6 +155,19 @@
                     <span class="sidebar-text">Settings</span>
                 </a>
             </li>
+            <li class="nav-item {{ request()->routeIs('admin.profile.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.profile.edit') }}" class="nav-link">
+                    <span class="sidebar-icon">
+                        <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10 2a5 5 0 00-3.536 8.536A7 7 0 003 16a1 1 0 102 0 5 5 0 0110 0 1 1 0 102 0 7 7 0 00-3.464-5.964A5 5 0 0010 2zm0 2a3 3 0 110 6 3 3 0 010-6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                    <span class="sidebar-text">Admin Profile</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

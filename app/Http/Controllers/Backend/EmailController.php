@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Email;
 use App\Http\Requests\StoreEmailRequest;
-use App\Http\Requests\UpdateEmailRequest;
+use App\Mail\AdminEmailReply;
+use App\Models\Email;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
@@ -36,7 +38,33 @@ class EmailController extends Controller
      */
     public function show(Email $email)
     {
-        //
+        if (! $email->is_read) {
+            $email->forceFill([
+                'is_read' => true,
+                'read_at' => now(),
+            ])->save();
+        }
+
+        return view('backend.emails.show', compact('email'));
+    }
+
+    public function reply(Request $request, Email $email)
+    {
+        $validated = $request->validate([
+            'recipient_email' => ['required', 'email', 'max:255'],
+            'subject' => ['required', 'string', 'max:255'],
+            'message' => ['required', 'string'],
+        ]);
+
+        Mail::to($validated['recipient_email'])->send(new AdminEmailReply(
+            recipientName: $email->full_name,
+            subjectLine: $validated['subject'],
+            messageBody: $validated['message'],
+        ));
+
+        return redirect()
+            ->route('emails.show', $email)
+            ->with('success', 'Reply sent successfully.');
     }
 
     /**
