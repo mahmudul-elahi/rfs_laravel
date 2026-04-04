@@ -113,6 +113,10 @@ body {
     font-weight: 400;
 }
 
+.breadcrumb li {
+    list-style: none !important;
+}
+
 .breadcrumb li a {
     color: #8f8e8f;
     font-family: "Poppins", sans-serif;
