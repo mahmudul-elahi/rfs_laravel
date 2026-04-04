@@ -117,7 +117,7 @@ class ProjectController extends Controller
             }
 
             $path = $request->file('image')->store('projects', 'public');
-            $data['image'] = $path;
+            $data['image'] = 'storage/' . $path;
         }
 
         $project->update($data);
