@@ -29,9 +29,12 @@
 
 
             @forelse ($projects as $project)
+                @php
+                    $isEven = $loop->even;
+                @endphp
                 <div class="products-item" dir="rtl">
-                    <div class="row g-5">
-                        <div class="col-md-7 order-2 order-md-1">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-md-7 order-2 {{ $isEven ? 'order-md-2' : 'order-md-1' }}">
                             <h2>{{ Str::limit($project->title, 25) }}</h2>
                             <p>
                                 {!! Str::limit($project->description, 150, '...') !!}
@@ -44,8 +47,8 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-5 order-1 order-md-2">
-                            <div class="product-image">
+                        <div class="col-md-5 order-1 {{ $isEven ? 'order-md-1' : 'order-md-2' }}">
+                            <div class="product-image   mx-auto text-center">
                                 <img src="{{ asset($project->image) }}" alt="{{ $project->title }}"
                                     title="{{ $project->title }}">
                             </div>

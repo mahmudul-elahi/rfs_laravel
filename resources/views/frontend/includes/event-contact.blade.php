@@ -4,7 +4,7 @@
 
 <section class="event-contact" dir="rtl">
     <div class="container">
-        <div class="row g-5">
+        <div class="row">
             <div class="col-md-6">
                 <div class="event-heading">
                     <h2>אירועים</h2>

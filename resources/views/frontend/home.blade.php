@@ -13,7 +13,7 @@
                             תיירות, באתרי מורשת ובמרכזי מבקרים ברחבי העולם.
                         </p>
 
-                        <a class="button button-primary" href="#">צפייה במוצרים</a>
+                        <a class="button button-primary" href="{{ route('products.all') }}">צפייה במוצרים</a>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="item item-1">
-                        <a href="#" class="full-href">
+                        <a href="{{ route('accessibility.index') }}" class="full-href">
                             <div class="d-flex align-items-center justify-content-between w-100">
                                 <h4>נגישות לאנשים עם <br>מוגבלות</h4>
 
@@ -41,7 +41,7 @@
                 <div class="col-md-6">
                     <div class="d-flex flex-column justify-content-between h-100 w-100">
                         <div class="item item-2">
-                            <a href="#" class="full-href">
+                            <a href="{{ route('products.all') }}" class="full-href">
                                 <div class="d-flex align-items-end justify-content-between w-100">
                                     <h4>מוצרים</h4>
 
@@ -52,8 +52,12 @@
                             </a>
                         </div>
 
+                        @php
+                            $product = \App\Models\Page::where('slug', 'השכרת-מערכות')->first();
+                        @endphp
+
                         <div class="item item-3">
-                            <a href="#" class="full-href">
+                            <a href="{{ route('pages.show_detail', $product) }}" class="full-href">
                                 <div class="d-flex align-items-end justify-content-between w-100">
                                     <h4>השכרת מערכות</h4>
 

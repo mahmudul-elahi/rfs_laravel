@@ -20,7 +20,7 @@
         $url3 = $item3 ? route('accessibility.show_detail', $item3) : '#';
     @endphp
 
-    <section class="nav-iteam-list accessibility">
+    <section class="nav-iteam-list accessibility" dir="rtl">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-6">
